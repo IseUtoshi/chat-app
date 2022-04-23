@@ -24,15 +24,18 @@
         </div>
     </div>
 </div>
+
+<%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
 <div class="main-chat__form">
     <div class="main-chat__form__message-area">
-        <input type="text" placeholder="type a message" class="main-chat__form__message">
+        <%= f.text_field :content, placeholder: "type a message", class: "main-chat__form__message" %>
         <label class="form-image">
             <span class="image-file">画像</span>
-            <input type="file" class="hidden">
+            <%= f.file_field :image, class: "hidden" %>
         </label>
     </div>
     <div class="main-chat__form__send">
-        <input type="submit" value="送信" class="main-chat__form__send-btn">
+        <%= f.submit "送信", class: "main-chat__form__send-btn" %>
     </div>
+    <% end %>
 </div>
